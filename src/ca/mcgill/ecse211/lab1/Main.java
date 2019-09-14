@@ -17,8 +17,9 @@ public class Main {
   /**
    * Main entry point - instantiate objects used and set up sensor
    * @param args
+   * @throws InterruptedException 
    */
-  public static void main(String[] args) {
+  public static void main(String[] args) throws InterruptedException {
     // Set up the display on the EV3 screen and wait for a button press. 
     // The button ID (option) determines what type of control to use
     Printer.printMainMenu();
@@ -33,8 +34,8 @@ public class Main {
     }
 
     // Start the poller and printer threads
-    new Thread(new UltrasonicPoller()).start();
-    new Thread(new Printer()).start();
+    new UltrasonicPoller();
+    new Printer();
 
     // Wait here until button pressed to terminate wall follower
     Button.waitForAnyPress();

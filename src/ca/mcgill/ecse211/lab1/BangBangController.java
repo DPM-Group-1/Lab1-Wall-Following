@@ -15,10 +15,10 @@ public class BangBangController extends UltrasonicController {
   public void processUSData(int distance) {
     filter(distance);
 
-    if (distance < (Resources.BAND_CENTER - Resources.BAND_WIDTH/2)) { // If the robot is too close, turn right.
+    if (distance < (BAND_CENTER - BAND_WIDTH/2)) { // If the robot is too close, turn right.
       LEFT_MOTOR.setSpeed(MOTOR_HIGH);
       RIGHT_MOTOR.setSpeed(MOTOR_LOW);
-    } else if (distance < (Resources.BAND_CENTER + Resources.BAND_WIDTH/2)) { // If the robot is in the dead band, move forward.
+    } else if (distance < (BAND_CENTER + BAND_WIDTH/2)) { // If the robot is in the dead band, move forward.
       LEFT_MOTOR.setSpeed(MOTOR_HIGH);
       RIGHT_MOTOR.setSpeed(MOTOR_HIGH);
     } else { // If the robot is too far, turn left.

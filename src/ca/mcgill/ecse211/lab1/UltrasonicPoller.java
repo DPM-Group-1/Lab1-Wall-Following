@@ -1,6 +1,8 @@
 package ca.mcgill.ecse211.lab1;
 
 import static ca.mcgill.ecse211.lab1.Resources.*;
+import lejos.utility.Timer;
+import lejos.utility.TimerListener;
 
 /**
  * Samples the US sensor and invokes the selected controller on each cycle.
@@ -11,14 +13,16 @@ import static ca.mcgill.ecse211.lab1.Resources.*;
  * one cycle through the loop is approximately 70 ms. This corresponds to a sampling rate of 1/70ms
  * or about 14 Hz.
  */
-public class UltrasonicPoller implements Runnable {
+public class UltrasonicPoller implements TimerListener {
 
   private UltrasonicController controller;
   private float[] usData;
 
-  public UltrasonicPoller() {
+  public UltrasonicPoller() throws InterruptedException {
     usData = new float[US_SENSOR.sampleSize()];
     controller = Main.selectedController;
+    Timer samplerTimer = new Timer(SINTERVAL, this);
+    samplerTimer.start();
   }
 
   /*
@@ -27,17 +31,11 @@ public class UltrasonicPoller implements Runnable {
    * 
    * @see java.lang.Thread#run()
    */
-  public void run() {
+  public void timedOut() { // Called every time the timer times out.
     int distance;
-    while (true) {
-      US_SENSOR.getDistanceMode().fetchSample(usData, 0); // acquire distance data in meters
-      distance = (int) (usData[0] * 100.0); // extract from buffer, convert to cm, cast to int
-      controller.processUSData(distance); // now take action depending on value
-      try {
-        Thread.sleep(50);
-      } catch (Exception e) {
-      } // Poor man's timed sampling
-    }
+    US_SENSOR.getDistanceMode().fetchSample(usData, 0); // acquire distance data in meters
+    distance = (int) (usData[0] * 100.0); // extract from buffer, convert to cm, cast to int
+    controller.processUSData(distance); // now take action depending on value
   }
 
 }
