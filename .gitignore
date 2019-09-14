@@ -1,0 +1,11 @@
+/bin/
+
+\.project
+
+\.classpath
+
+*.jar
+
+*.prefs
+
+.DS_Store
