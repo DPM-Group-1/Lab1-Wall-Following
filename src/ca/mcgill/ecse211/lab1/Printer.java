@@ -14,7 +14,7 @@ public class Printer implements TimerListener {
 
   public Printer() {
     controller = Main.selectedController;
-    Timer printerTimer = new Timer(50, this);
+    Timer printerTimer = new Timer(50, this); // Create and start a timer to regulate screen refresh.
     printerTimer.start();
   }
 

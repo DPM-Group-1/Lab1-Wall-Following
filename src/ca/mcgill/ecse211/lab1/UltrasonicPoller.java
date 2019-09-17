@@ -19,7 +19,7 @@ public class UltrasonicPoller implements TimerListener {
   public UltrasonicPoller() throws InterruptedException {
     usData = new float[US_SENSOR.sampleSize()];
     controller = Main.selectedController;
-    Timer samplerTimer = new Timer(SINTERVAL, this);
+    Timer samplerTimer = new Timer(SINTERVAL, this); // Create and start a new timer to regulate sample frequency.
     samplerTimer.start();
   }
 

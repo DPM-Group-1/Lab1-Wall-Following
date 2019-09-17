@@ -24,7 +24,7 @@ public class Resources {
   /**
    * Width of dead band (cm).
    */
-  public static final int BAND_WIDTH = 6;
+  public static final int BAND_WIDTH = 8;
   
   /**
    * Speed of slower rotating wheel (deg/sec).
@@ -44,7 +44,7 @@ public class Resources {
   /**
    * Sampling interval.
    */
-  public static final int SINTERVAL = 7;
+  public static final int SINTERVAL = 45;
   
   public static final int FILTER_OUT = 20;
 
