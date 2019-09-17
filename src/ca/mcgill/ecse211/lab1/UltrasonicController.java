@@ -9,6 +9,8 @@ public abstract class UltrasonicController {
 
   int distance;
   
+  int previousDistance;
+  
   int filterControl;
   
   /**
@@ -42,5 +44,20 @@ public abstract class UltrasonicController {
       this.distance = distance;
     }
   }
+  
+  /**
+   * Differential filter. Make sure that the value is not too different from the previous one.
+   * @param distance distance in cm
+   */
+  void differentialFilter(int distance) {
+    if (previousDistance - distance < -100) {
+      int temp = this.previousDistance;
+      this.previousDistance = this.distance;
+      this.distance = temp;
+    } else {
+      this.previousDistance = this.distance;
+    }
+  }
+  
   
 }

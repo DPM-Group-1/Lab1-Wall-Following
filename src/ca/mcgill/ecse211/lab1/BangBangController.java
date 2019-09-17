@@ -14,6 +14,7 @@ public class BangBangController extends UltrasonicController {
   @Override
   public void processUSData(int distance) {
     filter(distance);
+    differentialFilter(distance);
 
     if (distance < (BAND_CENTER - BAND_WIDTH/2)) { // If the robot is too close, turn right.
       LEFT_MOTOR.setSpeed(MOTOR_HIGH);
