@@ -5,8 +5,8 @@ import lejos.utility.Timer;
 import lejos.utility.TimerListener;
 
 /**
- * The printer thread prints status information in the background. Since the thread sleeps for 
- * 200 ms each time through the loop, screen updating is limited to 5 Hz.
+ * The printer thread prints status information in the background. The screen update is linked to a timer of 50 ms, so
+ * the screen updates at a frequency of 20Hz
  */
 public class Printer implements TimerListener {
 

@@ -19,22 +19,22 @@ public class Resources {
   /**
    * Offset from the wall (cm).
    */
-  public static final int BAND_CENTER = 35;
+  public static final int BAND_CENTER = 45;
   
   /**
    * Width of dead band (cm).
    */
-  public static final int BAND_WIDTH = 5;
+  public static final int BAND_WIDTH = 6;
   
   /**
    * Speed of slower rotating wheel (deg/sec).
    */
-  public static final int MOTOR_LOW = 80;
+  public static final int MOTOR_LOW = 70;
   
   /**
    * Speed of the faster rotating wheel (deg/sec).
    */
-  public static final int MOTOR_HIGH = 190;
+  public static final int MOTOR_HIGH = 150;
   
   /**
    * Gain of the P-controller.
@@ -44,7 +44,7 @@ public class Resources {
   /**
    * Sampling interval.
    */
-  public static final int SINTERVAL = 25;
+  public static final int SINTERVAL = 7;
   
   public static final int FILTER_OUT = 20;
 

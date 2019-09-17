@@ -4,11 +4,11 @@ import static ca.mcgill.ecse211.lab1.Resources.*;
 
 public class PController extends UltrasonicController {
 
-  private static final int MOTOR_SPEED = 140;
-  private static final int MAX_DELTA = 80;
+  private static final int MOTOR_SPEED = 130;
+  private static final int MAX_DELTA = 70;
 
   public PController() {
-    LEFT_MOTOR.setSpeed(MOTOR_SPEED); // Initialize motor rolling forward
+    LEFT_MOTOR.setSpeed(MOTOR_SPEED); // Initialize motor rolling forward.
     RIGHT_MOTOR.setSpeed(MOTOR_SPEED);
     LEFT_MOTOR.forward();
     RIGHT_MOTOR.forward();
